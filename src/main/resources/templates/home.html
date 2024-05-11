@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Rent Car Home Page</title>
+</head>
+<body class="p-3 mb-2 bg-light text-dark">
+
+<div>
+    <div class="mb-4">
+        <h5 class="fw-semibold">Internal Management System</h5>
+    </div>
+
+    <hr>
+
+    <div class="mt-5 d-flex justify-content-center">
+        <h1 class="fw-semibold">Stanley's Car Rental</h1>
+    </div>
+
+    <div class=" mx-5 my-5 bg-warning bg-opacity-25 border border-primary border-start-5 rounded">
+        <div class="mt-5 mb-5 d-flex justify-content-center">
+            <a th:href="@{/cars/list}" class="btn btn-success btn-lg fst-italic">
+                Link do Bazy
+            </a>
+        </div>
+    </div>
+
+    <hr>
+
+</div>
+
+</body>
+</html>

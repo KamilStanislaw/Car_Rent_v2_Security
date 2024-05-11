@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Update Form</title>
+</head>
+<body>
+
+    <div class="container">
+        <h3 class="mt-1">Cars Directory</h3>
+        <hr>
+        <p class="h4 mb-4">Update Car</p>
+
+        <form action="#" th:action="@{/cars/save}" th:object="${car}" method="POST">
+
+            <input type="hidden" th:field="*{id}">
+
+            <input type="hidden" th:field="*{brand}">
+
+            <input type="hidden" th:field="*{model}">
+
+            <input type="text" th:field="*{color}"
+                   class="form-control mb-4 w-25" name="color" placeholder="color">
+
+            <input type="hidden" th:field="*{vin}">
+
+            <input type="text" th:field="*{rented}"
+                   class="form-control mb-4 w-25" name="rented" placeholder="rented">
+
+            <input type="text" th:field="*{fixing}"
+                   class="form-control mb-4 w-25" name="fixing" placeholder="fixing">
+
+            <!-- <button type="submit" class="btn btn-info col-2">Save</button> -->
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-info col-2 ">Save</button>
+                <button th:href="@{/cars/delete(carId=${car.id})}"
+                        class="btn btn-outline-danger btn-sm" type="button"
+                        onclick="if(!(confirm('Are you sure you want to delete this car?'))) return false">
+                    Delete
+                </button>
+            </div>
+        </form>
+
+        <hr>
+        <a th:href="@{/cars/list}">Back to Cars List</a>
+
+    </div>
+
+</body>
+</html>
