@@ -33,6 +33,13 @@
 
     <hr>
 
+    <!-- logout button;     @{/logout}  built-in URL      to built-in method    in SecurityFilterChain   -->
+    <form action="#" th:action="@{/logout}" method="POST">
+
+        <input type="submit" value="Logout" class="btn btn-danger btn-sm mt-2" />
+
+    </form>
+
 </div>
 
 </body>

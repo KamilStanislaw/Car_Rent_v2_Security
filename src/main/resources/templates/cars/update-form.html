@@ -38,12 +38,16 @@
             <!-- <button type="submit" class="btn btn-info col-2">Save</button> -->
 
             <div class="d-flex justify-content-between">
+                <!-- to Save (submit) <button is ok> -->
                 <button type="submit" class="btn btn-info col-2 ">Save</button>
-                <button th:href="@{/cars/delete(carId=${car.id})}"
-                        class="btn btn-outline-danger btn-sm" type="button"
-                        onclick="if(!(confirm('Are you sure you want to delete this car?'))) return false">
+
+                <a th:href="@{/cars/delete(carId=${car.id})}"
+                   class="btn btn-outline-danger btn-sm"
+                   onclick="if(!(confirm('Are you sure you want to delete this car?'))) return false">
                     Delete
-                </button>
+                    <!-- if DELETE needs authorization, <a> is needed; case <button> - "acces-denied" page won't show -->
+                </a>
+
             </div>
         </form>
 
