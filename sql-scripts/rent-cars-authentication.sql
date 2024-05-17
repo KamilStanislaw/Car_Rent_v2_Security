@@ -1,4 +1,4 @@
-USE `cars_database`;
+USE `m1180_rent_car`;
 
 SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS `user`;
