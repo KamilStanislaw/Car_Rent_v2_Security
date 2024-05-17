@@ -1,10 +1,10 @@
-CREATE DATABASE IF NOT EXISTS `cars_database`;
-USE `cars_database`;
+CREATE DATABASE IF NOT EXISTS `m1180_rent_car`;
+USE `m1180_rent_car`;
 
 DROP TABLE IF EXISTS `cars`;
 
 CREATE TABLE `cars` (
-`id` int NOT NULL AUTO_INCREMENT,
+`id` bigint NOT NULL AUTO_INCREMENT,
 `brand` varchar(50) DEFAULT NULL,
 `model` varchar(50) DEFAULT NULL,
 `color` varchar(50) DEFAULT NULL,
@@ -19,7 +19,7 @@ INSERT INTO `cars` VALUES
 (2, 'Skoda', 'Fabia', 'white', 3566797232, true,false),
 (3, 'Skoda', 'Superb', 'grey', 8679363434, true,false),
 (4, 'Skoda', 'Superb', 'grey', 1234809642, false,false),
-(5, 'Volkswagen', 'Golf', 'silver', 0985534522, true,false),
+(5, 'Volkswagen', 'Golf', 'silver', 1985534522, true,false),
 (6, 'Volkswagen', 'Golf', 'white', 7980435323, false,true),
 (7, 'Volkswagen', 'Polo', 'white', 3215467676, true,false),
 (8, 'Volkswagen', 'Polo', 'black', 3287798042, true,false),
@@ -33,7 +33,7 @@ INSERT INTO `cars` VALUES
 (16, 'Toyota', 'Yaris', 'grey', 1235767434, true,false),
 (17, 'Toyota', 'Corolla', 'silver', 1235767434, true,false),
 (18, 'Toyota', 'Corolla', 'white', 2368790255, false,false),
-(19, 'BMW', 'M3', 'black', 0877352351, true,false),
+(19, 'BMW', 'M3', 'black', 1877352351, true,false),
 (20, 'BMW', 'M3', 'black', 1125476888, true,false);
 
 

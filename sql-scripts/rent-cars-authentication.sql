@@ -23,9 +23,9 @@ PRIMARY KEY (`id`)
 
 INSERT INTO `user` (`username`, `password`, `enabled`)
 VALUES 
-('janek', '$2a$10$bqgNU1sh10Ru5npsgSwEJOxHu03yRr/pl2yQylH8n9iBBOHeKSoou', 1),
-('maria', '$2a$10$bqgNU1sh10Ru5npsgSwEJOxHu03yRr/pl2yQylH8n9iBBOHeKSoou', 1),
-('zofia', '$2a$10$bqgNU1sh10Ru5npsgSwEJOxHu03yRr/pl2yQylH8n9iBBOHeKSoou', 1);
+('janek', '$2a$10$UdrFtg6aMzDC1cwlNqr48uVDc3QHDBhtSTKYgDy/tlvC3wkSAxHVu', 1),
+('maria', '$2a$10$UdrFtg6aMzDC1cwlNqr48uVDc3QHDBhtSTKYgDy/tlvC3wkSAxHVu', 1),
+('zofia', '$2a$10$UdrFtg6aMzDC1cwlNqr48uVDc3QHDBhtSTKYgDy/tlvC3wkSAxHVu', 1);
 
 
 -- table `role`
