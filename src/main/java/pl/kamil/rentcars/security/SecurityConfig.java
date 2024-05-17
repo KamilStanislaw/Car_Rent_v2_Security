@@ -30,8 +30,9 @@ public class SecurityConfig {
         http.authorizeHttpRequests(configurer ->
                         configurer
                                 .requestMatchers("/").hasRole("EMPLOYEE") // all people have employee role
+                                .requestMatchers("/cars").hasRole("EMPLOYEE")
                                 .requestMatchers(HttpMethod.GET, "/cars/list").hasAnyRole("EMPLOYEE", "MANAGER", "ADMIN")
-                                .requestMatchers(HttpMethod.GET, "cars/showAddForm").hasAnyRole("MANAGER", "ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/cars/showAddForm").hasAnyRole("MANAGER", "ADMIN")
                                 .requestMatchers(HttpMethod.GET, "/cars/showUpdateForm").hasAnyRole("MANAGER", "ADMIN")
                                 .requestMatchers(HttpMethod.POST, "/cars/save").hasAnyRole("MANAGER", "ADMIN")
                                 .requestMatchers(HttpMethod.GET, "/cars/delete").hasRole("ADMIN")
