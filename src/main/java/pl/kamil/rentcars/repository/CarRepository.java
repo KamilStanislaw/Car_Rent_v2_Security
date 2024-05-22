@@ -1,4 +1,4 @@
-package pl.kamil.rentcars.dao;
+package pl.kamil.rentcars.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;

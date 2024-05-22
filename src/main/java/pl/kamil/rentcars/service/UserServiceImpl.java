@@ -6,8 +6,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.kamil.rentcars.dao.RoleDao;
-import pl.kamil.rentcars.dao.UserDao;
+import pl.kamil.rentcars.repository.RoleDao;
+import pl.kamil.rentcars.repository.UserDao;
 import pl.kamil.rentcars.entity.Role;
 import pl.kamil.rentcars.entity.User;
 

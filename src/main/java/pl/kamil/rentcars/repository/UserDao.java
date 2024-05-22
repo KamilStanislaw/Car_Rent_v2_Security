@@ -1,4 +1,4 @@
-package pl.kamil.rentcars.dao;
+package pl.kamil.rentcars.repository;
 
 import pl.kamil.rentcars.entity.User;
 
