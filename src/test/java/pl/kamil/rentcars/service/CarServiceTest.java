@@ -35,11 +35,11 @@ public class CarServiceTest {
         Car car1 = new Car("Subaru", "Impreza", "blue", 2345776543L, false, false);
 
         // after calling repo methods - not returning real obj/list - returning prepared (or mocked - auto prepared)
-        when(carRepository.findById(1)).thenReturn(Optional.ofNullable(car1));
+        when(carRepository.findById(1L)).thenReturn(Optional.ofNullable(car1));
 
 
         // calling real carService
-        Car foundCar = carService.findById(1);
+        Car foundCar = carService.findById(1L);
 
         Assertions.assertThat(foundCar).isNotNull();
     }
@@ -60,13 +60,13 @@ public class CarServiceTest {
 
         Car car1 = new Car(1L, "Subaru", "Impreza", "blue", 2345776543L, false, false);
 
-        when(carRepository.findById(1)).thenReturn(Optional.ofNullable(car1));
-        doNothing().when(carRepository).deleteById(Math.toIntExact(car1.getId()));
+        when(carRepository.findById(1L)).thenReturn(Optional.ofNullable(car1));
+        doNothing().when(carRepository).deleteById(car1.getId());
 
-        Car foundCar = carService.findById(1);
-        carService.deleteById(Math.toIntExact(foundCar.getId()));
+        Car foundCar = carService.findById(1L);
+        carService.deleteById(foundCar.getId());
 
-        assertAll(() -> carService.deleteById(1));
+        assertAll(() -> carService.deleteById(1L));
     }
 
 }

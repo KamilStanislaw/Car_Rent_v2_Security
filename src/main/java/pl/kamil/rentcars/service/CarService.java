@@ -8,11 +8,11 @@ public interface CarService {
 
     List<Car> findAll();
 
-    Car findById(int id);
+    Car findById(Long id);
 
     void save(Car car);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
     List<Car> findAllByOrderByBrandAsc();
 

@@ -6,8 +6,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.kamil.rentcars.repository.RoleDao;
-import pl.kamil.rentcars.repository.UserDao;
+import pl.kamil.rentcars.repository.RoleRepository;
+import pl.kamil.rentcars.repository.UserRepository;
 import pl.kamil.rentcars.entity.Role;
 import pl.kamil.rentcars.entity.User;
 
@@ -17,25 +17,31 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserDao userDao;
+    private UserRepository userRepository;
 
-    private RoleDao roleDao;
+    private RoleRepository roleRepository;
 
     @Autowired
-    public UserServiceImpl(UserDao userDao, RoleDao roleDao) {
-        this.userDao = userDao;
-        this.roleDao = roleDao;
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     @Override
     public User findByUserName(String userName) {
-        return userDao.findByUserName(userName);
+
+        User user = userRepository.findByUserName(userName);
+        if (!user.isEnabled()) {
+            throw new UsernameNotFoundException("Invalid username or password.");
+        } else {
+            return user;
+        }
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userDao.findByUserName(username);
+        User user = userRepository.findByUserName(username);
 
         if(user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");

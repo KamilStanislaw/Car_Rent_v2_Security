@@ -45,7 +45,7 @@ public class CarController {
     }
 
     @GetMapping("/showUpdateForm")
-    public String showUpdateForm(@RequestParam("carId") int id, Model model) {
+    public String showUpdateForm(@RequestParam("carId") Long id, Model model) {
 
         Car theCar = carService.findById(id);
         model.addAttribute("car", theCar);
@@ -54,7 +54,7 @@ public class CarController {
     }
 
     @GetMapping("/delete")
-    public String delete(@RequestParam("carId") int id) {
+    public String delete(@RequestParam("carId") Long id) {
 
         carService.deleteById(id);
 
