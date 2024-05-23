@@ -2,8 +2,8 @@ package pl.kamil.rentcars.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.kamil.rentcars.repository.CarRepository;
 import pl.kamil.rentcars.entity.Car;
+import pl.kamil.rentcars.repository.CarRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -59,6 +59,5 @@ public class CarServiceImpl implements CarService {
     public List<Car> findAllByOrderByVinAsc() {
         return carRepository.findAllByOrderByVinAsc();
     }
-
 
 }
