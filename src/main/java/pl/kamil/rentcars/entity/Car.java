@@ -1,7 +1,15 @@
 package pl.kamil.rentcars.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "cars")
 public class Car {
@@ -29,8 +37,6 @@ public class Car {
     @Column(name = "fixing")
     private boolean fixing;
 
-    public Car() {
-    }
 
     public Car(String brand, String model, String color, long vin, boolean rented, boolean fixing) {
         this.brand = brand;
@@ -42,71 +48,6 @@ public class Car {
         this.fixing = fixing;
     }
 
-    public Car(Long id, String brand, String model, String color, long vin, boolean rented, boolean fixing) {
-        this.id = id;
-        this.brand = brand;
-        this.model = model;
-        this.color = color;
-        this.vin = vin;
-        this.rented = rented;
-        this.fixing = fixing;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public long getVin() {
-        return vin;
-    }
-
-    public void setVin(long vin) {
-        this.vin = vin;
-    }
-
-    public boolean isRented() {
-        return rented;
-    }
-
-    public void setRented(boolean rented) {
-        this.rented = rented;
-    }
-
-    public boolean isFixing() {
-        return fixing;
-    }
-
-    public void setFixing(boolean fixing) {
-        this.fixing = fixing;
-    }
 
     @Override
     public String toString() {

@@ -149,7 +149,15 @@ public class CarRepositoryTest {
     @Test
     public void carRepositoryDeleteById() {
 
-        Car car1 = new Car("Fiat", "Multipla", "grey", 4444776543L, false, true);
+        Car car1 = Car.builder()
+                .brand("Fiat")
+                .model("Multipla")
+                .color("grey")
+                .vin(4444776543L)
+                .rented(false)
+                .fixing(true)
+                .build();
+
         Car savedCar = carRepository.save(car1);
         System.out.println(savedCar);
 
