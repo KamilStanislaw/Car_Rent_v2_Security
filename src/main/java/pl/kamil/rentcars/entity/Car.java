@@ -1,6 +1,7 @@
 package pl.kamil.rentcars.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,21 +20,28 @@ public class Car {
     @Column(name = "id")
     private Long id;
 
+    @NotEmpty(message = "Brand must not be empty")
     @Column(name = "brand")
     private String brand;
 
+    @NotEmpty(message = "Model  must not be empty")
     @Column(name = "model")
     private String model;
 
+    @NotEmpty(message = "Color  must not be empty")
     @Column(name = "color")
     private String color;
 
+    @NotNull()
+    @Min(value = 0L)
     @Column(name = "vin")
     private long vin;
 
+    @NotNull()
     @Column(name = "rented")
     private boolean rented;
 
+    @NotNull()
     @Column(name = "fixing")
     private boolean fixing;
 
@@ -43,7 +51,6 @@ public class Car {
         this.model = model;
         this.color = color;
         this.vin = vin;
-
         this.rented = rented;
         this.fixing = fixing;
     }

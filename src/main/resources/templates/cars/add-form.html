@@ -17,23 +17,33 @@
         <p class="h4 mb-4">Save Car</p>
 
         <!-- @RequestMapping(/cars) @GetMapiing(/save) -->
-        <form action="#" th:action="@{/cars/save}"
-                         th:object="${car}" method="POST">
+        <form action="#" th:action="@{/cars/save}" th:object="${car}" method="POST">
 
-        <input type="text" th:field="*{brand}"
-               class="form-control mb-4 w-25" name="brand" placeholder="Brand">
-        <input type="text" th:field="*{model}"
-               class="form-control mb-4 w-25" name="model" placeholder="Model">
-        <input type="text" th:field="*{color}"
-               class="form-control mb-4 w-25" name="color" placeholder="color">
-        <input type="text" th:field="*{vin}"
-               class="form-control mb-4 w-25" name="vin" placeholder="ten digits VIN">
-        <input type="text" th:field="*{rented}"
-               class="form-control mb-4 w-25" name="rented" placeholder="rented">
-        <input type="text" th:field="*{fixing}"
-               class="form-control mb-4 w-25" name="fixing" placeholder="fixing">
+            <input type="text" th:field="*{brand}" class="form-control mb-4 w-25" id="brand" name="brand" placeholder="Brand">
+                <p th:if="${#fields.hasErrors('brand')}" class="text-danger" th:errors="*{brand}"></p>
 
-        <button type="submit" class="btn btn-info col-2 ">Save</button>
+
+            <input type="text" th:field="*{model}" class="form-control mb-4 w-25" id="model" name="model" placeholder="Model">
+                <p th:if="${#fields.hasErrors('model')}" class="text-danger" th:errors="*{model}"></p>
+
+
+            <input type="text" th:field="*{color}" class="form-control mb-4 w-25" id="color" name="color" placeholder="color">
+                <p th:if="${#fields.hasErrors('color')}" class="text-danger" th:errors="*{color}"></p>
+
+
+            <input type="text" th:field="*{vin}" class="form-control mb-4 w-25" id="vin" name="vin" placeholder="ten digits VIN">
+                <p th:if="${#fields.hasErrors('vin')}" class="text-danger" th:errors="*{vin}"></p>
+
+
+            <input type="text" th:field="*{rented}" class="form-control mb-4 w-25" id="rented" name="rented" placeholder="rented">
+                <p th:if="${#fields.hasErrors('rented')}" class="text-danger" th:errors="*{rented}"></p>
+
+
+            <input type="text" th:field="*{fixing}" class="form-control mb-4 w-25" id="fixing" name="fixing" placeholder="fixing">
+                <p th:if="${#fields.hasErrors('fixing')}" class="text-danger" th:errors="*{fixing}"></p>
+
+
+            <button type="submit" class="btn btn-info col-2 ">Save</button>
         </form>
 
         <hr>

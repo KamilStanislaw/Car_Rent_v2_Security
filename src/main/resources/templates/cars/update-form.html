@@ -24,16 +24,17 @@
 
             <input type="hidden" th:field="*{model}">
 
-            <input type="text" th:field="*{color}"
-                   class="form-control mb-4 w-25" name="color" placeholder="color">
+            <input type="text" th:field="*{color}" class="form-control mb-4 w-25" id="color" name="color" placeholder="color">
+                <p th:if="${#fields.hasErrors('color')}" class="text-danger" th:errors="*{color}"></p>
 
             <input type="hidden" th:field="*{vin}">
 
-            <input type="text" th:field="*{rented}"
-                   class="form-control mb-4 w-25" name="rented" placeholder="rented">
+            <input type="text" th:field="*{rented}" class="form-control mb-4 w-25" id="rented" name="rented" placeholder="rented">
+                <p th:if="${#fields.hasErrors('rented')}" class="text-danger" th:errors="*{rented}"></p>
 
-            <input type="text" th:field="*{fixing}"
-                   class="form-control mb-4 w-25" name="fixing" placeholder="fixing">
+            <input type="text" th:field="*{fixing}" class="form-control mb-4 w-25" id="fixing" name="fixing" placeholder="fixing">
+                <p th:if="${#fields.hasErrors('fixing')}" class="text-danger" th:errors="*{fixing}"></p>
+
 
             <!-- <button type="submit" class="btn btn-info col-2">Save</button> -->
 

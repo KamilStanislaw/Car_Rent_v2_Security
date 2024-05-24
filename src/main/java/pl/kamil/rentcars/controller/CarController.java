@@ -1,8 +1,10 @@
 package pl.kamil.rentcars.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.kamil.rentcars.entity.Car;
 import pl.kamil.rentcars.service.CarService;
@@ -29,7 +31,16 @@ public class CarController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("car") Car car) { // take modelAttribute made in form
+    public String save(@Valid @ModelAttribute("car") Car car, BindingResult result) { // take modelAttribute made in form
+
+        if (result.hasErrors()) {
+            if (car.getId() != null) {
+                return "cars/update-form";
+            } else {
+                return "cars/add-form";
+            }
+        }
+
         carService.save(car);
 
         return "redirect:/cars/list";
@@ -38,7 +49,7 @@ public class CarController {
     @GetMapping("/showAddForm") // need new model do add a new car
     public String showAddForm(Model model) {
 
-        Car theCar = new Car();
+        Car theCar = new Car("", "", "", 0L, false, false);
         model.addAttribute("car", theCar);
 
         return "cars/add-form";
