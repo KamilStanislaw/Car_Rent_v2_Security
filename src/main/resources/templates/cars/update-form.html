@@ -7,6 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
+    <script>
+        function validateForm() {
+          var x = document.forms["updateForm"]["rented"].value;
+          var y = document.forms["updateForm"]["fixing"].value;
+          if (x == "" || x == null) {
+            alert("Rental status must be true or false!");
+            return false;
+          } else if (y == "" || y == null) {
+            alert("Fixing status must be true or false!");
+            return false;
+          }
+        }
+    </script>
+
     <title>Update Form</title>
 </head>
 <body>
@@ -16,7 +30,8 @@
         <hr>
         <p class="h4 mb-4">Update Car</p>
 
-        <form action="#" th:action="@{/cars/save}" th:object="${car}" method="POST">
+        <form name="updateForm" action="#" th:action="@{/cars/save}" th:object="${car}" method="POST"
+              onsubmit="return validateForm()">
 
             <input type="hidden" th:field="*{id}">
 
@@ -29,11 +44,11 @@
 
             <input type="hidden" th:field="*{vin}">
 
-            <input type="text" th:field="*{rented}" class="form-control mb-4 w-25" id="rented" name="rented" placeholder="rented">
-                <p th:if="${#fields.hasErrors('rented')}" class="text-danger" th:errors="*{rented}"></p>
+            <input type="text" th:field="*{rented}" class="form-control mb-4 w-25" id="rented" name="rented" placeholder="rented - true / false">
 
-            <input type="text" th:field="*{fixing}" class="form-control mb-4 w-25" id="fixing" name="fixing" placeholder="fixing">
-                <p th:if="${#fields.hasErrors('fixing')}" class="text-danger" th:errors="*{fixing}"></p>
+
+            <input type="text" th:field="*{fixing}" class="form-control mb-4 w-25" id="fixing" name="fixing" placeholder="fixing - true / false">
+
 
 
             <!-- <button type="submit" class="btn btn-info col-2">Save</button> -->
@@ -48,7 +63,6 @@
                     Delete
                     <!-- if DELETE needs authorization, <a> is needed; case <button> - "acces-denied" page won't show -->
                 </a>
-
             </div>
         </form>
 

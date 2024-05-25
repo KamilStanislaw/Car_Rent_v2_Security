@@ -37,11 +37,11 @@ public class Car {
     @Column(name = "vin")
     private long vin;
 
-    @NotNull()
+//    @NotNull()
     @Column(name = "rented")
     private boolean rented;
 
-    @NotNull()
+//    @NotNull()
     @Column(name = "fixing")
     private boolean fixing;
 
