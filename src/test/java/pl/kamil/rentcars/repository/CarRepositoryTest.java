@@ -59,7 +59,7 @@ public class CarRepositoryTest {
 
         carRepository.save(car1);
 
-        Car foundCar = carRepository.findById(car1.getId()).get();
+        Car foundCar = carRepository.findById(Math.toIntExact(car1.getId())).get();
 
         Assertions.assertThat(foundCar).isNotNull();
         System.out.println(foundCar);
@@ -132,12 +132,12 @@ public class CarRepositoryTest {
         Car savedCar = carRepository.save(car1);
         System.out.println(savedCar);
 
-        Car foundCar = carRepository.findById(savedCar.getId()).get();
+        Car foundCar = carRepository.findById(Math.toIntExact(savedCar.getId())).get();
         foundCar.setColor("red");
         foundCar.setModel("Golf");
         Car updatedCar = carRepository.save(foundCar);
 
-        Car updatedFoundCar = carRepository.findById(car1.getId()).get();
+        Car updatedFoundCar = carRepository.findById(Math.toIntExact(car1.getId())).get();
         System.out.println(updatedFoundCar);
 
         Assertions.assertThat(updatedCar.getColor()).isNotNull();
@@ -161,9 +161,9 @@ public class CarRepositoryTest {
         Car savedCar = carRepository.save(car1);
         System.out.println(savedCar);
 
-        carRepository.deleteById(savedCar.getId());
+        carRepository.deleteById(Math.toIntExact(savedCar.getId()));
 
-        Optional<Car> returnedCar = carRepository.findById(savedCar.getId());
+        Optional<Car> returnedCar = carRepository.findById(Math.toIntExact(savedCar.getId()));
         System.out.println(returnedCar);
 
         Assertions.assertThat(returnedCar).isEmpty();

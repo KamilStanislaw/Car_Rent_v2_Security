@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,8 +14,13 @@
 <body class="p-3 mb-2 bg-light text-dark">
 
 <div>
-    <div class="mb-4">
+    <div class="d-flex justify-content-between mb-1">
         <h5 class="fw-semibold">Internal Management System</h5>
+
+        <p class="text-sm mt-1 lh-1 fw-medium font-monospace">
+            User: <span sec:authentication="principal.username"></span>
+            Role(s): <span sec:authentication="principal.authorities"></span>
+        </p>
     </div>
 
     <hr>

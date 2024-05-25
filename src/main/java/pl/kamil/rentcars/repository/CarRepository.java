@@ -5,7 +5,7 @@ import pl.kamil.rentcars.entity.Car;
 
 import java.util.List;
 
-public interface CarRepository extends JpaRepository<Car, Long> {
+public interface CarRepository extends JpaRepository<Car, Integer> {
     List<Car> findAllByOrderByBrandAsc();
     List<Car> findAllByOrderByModelAsc();
     List<Car> findAllByOrderByVinAsc();
