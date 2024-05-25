@@ -60,11 +60,15 @@ public class CarServiceTest {
 
         Car car1 = new Car(1L, "Subaru", "Impreza", "blue", 2345776543L, false, false);
 
+        // to test delete() need id from "real" employee - so first need to find it
+        // so, we need fake find and then fake delete - do nothing
+
         when(carRepository.findById(1)).thenReturn(Optional.ofNullable(car1));
         doNothing().when(carRepository).deleteById(Math.toIntExact(car1.getId()));
 
         Car foundCar = carService.findById(1L);
         carService.deleteById(foundCar.getId());
+
 
         assertAll(() -> carService.deleteById(1L));
     }
